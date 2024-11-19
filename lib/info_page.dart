@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:launch_review/launch_review.dart';
+import 'package:in_app_review/in_app_review.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoPage extends StatefulWidget {
@@ -133,7 +133,11 @@ class _InfoPageState extends State<InfoPage> {
                       child: Center(
                         child: GestureDetector(
                           onTap: () {
-                            LaunchReview.launch(iOSAppId: "6738126843");
+                            final InAppReview inAppReview =
+                                InAppReview.instance;
+                            inAppReview.openStoreListing(
+                              appStoreId: '6738126843',
+                            );
                           },
                           child: Text(
                             "Rate us",
